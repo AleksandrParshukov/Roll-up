@@ -1,20 +1,53 @@
 .example {
   color: @basic-black;
-  width: 1000px;
-  min-height: 376px;
+  width: @mobile-width;
   padding: 0;
   margin: 0;
   display: flex;
+  flex-direction: column;
 
   & .modal__close {
     top: 24px;
     right: 24px;
+
+    &::before,
+    &::after {
+      box-shadow: 0 0 1px 1px @basic-white;
+    }
+  }
+
+  @media (min-width: @laptop-width) {
+    width: 1000px;
+    min-height: 376px;
+    flex-direction: row;
+
+    & .modal__close {
+      top: 15px;
+      right: 15px;
+
+      &::before,
+      &::after {
+        box-shadow: none;
+      }
+    }
   }
 }
 
+.example__img-link {
+  line-height: 0;
+  height: min-content;
+}
+
 .example__image {
-  width: 306px;
-  height: 376px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+
+  @media (min-width: @laptop-width) {
+    width: 306px;
+    height: 376px;
+    object-fit: contain;
+  }
 }
 
 .example__wrapper {
@@ -38,5 +71,9 @@
 }
 
 .example__button {
-  margin: auto 0 0;
+  margin: 30px 0 0;
+
+  @media (min-width: @laptop-width) {
+    margin: auto 0 0;
+  }
 }

@@ -1,4 +1,5 @@
 const SCROLL_SPEED = 10;
+const SWIPE_LENGTH = 100;
 
 const sliders = document.querySelectorAll('.slider');
 const swipeSliders = document.querySelectorAll('.swipe-slider');
@@ -10,22 +11,25 @@ sliders.forEach((slider) => {
   const marginRight = parseInt(/\d+/.exec(getComputedStyle(sliderList.firstElementChild).marginRight)[0]);
   const offset = sliderList.firstElementChild.clientWidth + marginRight;
   const maxOffset = sliderList.scrollWidth - slider.clientWidth;
-  const btnBack = sliderNav.previousElementSibling;
-  const btnNext = sliderNav.nextElementSibling;
+  const btnBack = slider.querySelector('.slider__back');
+  const btnNext = slider.querySelector('.slider__next');
 
   let currentIndex = 0;
 
-  btnBack.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    currentIndex--;
-    updateSlider();
-  })
-
-  btnNext.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    currentIndex++;
-    updateSlider();
-  })
+  if (btnBack) {
+    btnBack.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      currentIndex--;
+      updateSlider();
+    })
+  }
+  if (btnNext) {
+    btnNext.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      currentIndex++;
+      updateSlider();
+    })
+  }
 
   sliderNavBtns.forEach((button, index) => {
     button.addEventListener('click', (evt) => {
@@ -35,27 +39,65 @@ sliders.forEach((slider) => {
     })
   })
 
+  slider.addEventListener('mousedown', (evt) => {
+    xStart = evt.screenX;
+  })
+  
+  slider.addEventListener('mouseup', (evt) => {
+    const lenght = evt.screenX - xStart;
+    touchendHandler(lenght);
+  })
+
+  slider.addEventListener('touchstart', (evt) => {
+    xStart = evt.changedTouches[0].clientX;
+  })
+  
+  slider.addEventListener('touchend', (evt) => {
+    const lenght = evt.changedTouches[0].clientX - xStart;
+    touchendHandler(lenght);
+  })
+
+
+  function touchendHandler(lenght) {
+    if (isSwipeLeft(lenght) && currentIndex != sliderList.children.length - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+
+    if (isSwipeRight(lenght)) {
+      if (currentIndex > 0) {
+        currentIndex--;
+      }
+      updateSlider();
+    }
+  }
+
   function updateSlider() {
-    btnBack.disabled = false;
-    btnNext.disabled = false;
     sliderNav.querySelector('.slider__nav-btn--current').classList.remove('slider__nav-btn--current');
     sliderNavBtns[currentIndex].classList.add('slider__nav-btn--current');
 
     sliderList.style.transform = `translateX(${-offset*currentIndex}px)`;
 
-    if (currentIndex === 0) {
-      btnBack.disabled = true;
-    }
-
     if (offset*currentIndex >= maxOffset) {
       sliderList.style.transform = `translateX(${-maxOffset}px)`;
     }
 
-    if ((currentIndex === sliderList.children.length - 1)) {
-      btnNext.disabled = true;
+    if (btnBack) {
+      btnBack.disabled = false;
+
+      if (currentIndex === 0) {
+        btnBack.disabled = true;
+      }
+    }
+
+    if (btnNext) {
+      btnNext.disabled = false;
+
+      if ((currentIndex === sliderList.children.length - 1)) {
+        btnNext.disabled = true;
+      }
     }
   }
-
 })
 
 swipeSliders.forEach((slider) => {
@@ -112,3 +154,12 @@ swipeSliders.forEach((slider) => {
   slider.addEventListener('touchstart', swipeStart);
   slider.addEventListener('mousedown', swipeStart); 
 })
+
+  
+function isSwipeLeft(length) {
+  return length <= -SWIPE_LENGTH;
+}
+
+function isSwipeRight(length) {
+  return length >= SWIPE_LENGTH;
+}

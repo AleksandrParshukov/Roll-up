@@ -18,6 +18,21 @@
   opacity: 0.6;
 }
 
+.modal__img {
+  width: 460px;
+  height: 558px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+
+  @media (min-width: @laptop-width) {
+    width: 595px;
+    height: 722px;
+  }
+}
+
 .modal__container {
   background-color: @basic-white;
   border-radius: 10px;
@@ -35,8 +50,8 @@
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 15px;
+  right: 15px;
 
   &::before, 
   &::after {
@@ -59,5 +74,10 @@
 
   &::after {
     transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  @media (min-width: @laptop-width) {
+    top: 40px;
+    right: 40px;
   }
 }

@@ -1,11 +1,16 @@
 .success {
-  width: 504px;
-  height: 376px;
-  padding: 60px 100px 45px;
+  width: @mobile-width;
+  padding: 60px 30px 45px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: @laptop-width) {
+    width: 504px;
+    height: 376px;
+    padding: 60px 100px 45px;
+  }
 }
 
 .success__image {

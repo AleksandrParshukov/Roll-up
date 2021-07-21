@@ -1,0 +1,144 @@
+.gallery {
+  width: 100%;
+  margin: 50px 0 0;
+  overflow: hidden;
+
+  @media (min-width: @laptop-width) {
+    margin: 30px 0 0;
+  }
+}
+
+.gallery__wrapper {
+  padding: 0 20px 50px;
+
+  @media (min-width: @laptop-width) {
+    padding: 0 10px;
+    position: relative;
+  }
+}
+
+.gallery__title {
+  color: @basic-white;
+}
+
+.gallery__slider {
+  margin: 56px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gallery__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  display: flex;
+}
+
+.gallery__item {
+  width: min-content;
+  height: min-content;
+  margin-right: 20px;
+  border-radius: 20px;
+  flex: 1 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery__image {
+  width: 280px;
+  height: 340px;
+}
+
+.gallery__link {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: @basic-white;
+  text-decoration: none;
+  text-align: center;
+  padding: 25px 0;
+  background-color: @fade-black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.gallery__button {
+  width: 49px;
+  height: 49px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  display: flex;
+
+  &--next {
+    transform: rotate(180deg);
+  }
+
+  &:hover svg,
+  &:focus svg {
+    fill: @basic-yellow;
+  }
+
+  @media (min-width: @laptop-width) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--prev {
+      left: -94px;
+    }
+
+    &--next {
+      right: -94px;
+      transform: rotate(180deg) translateY(50%);
+      transform-origin: center;
+    }
+  }
+}
+
+.gallery__nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: @laptop-width) {
+    margin: 0 auto 60px;
+  }
+}
+
+.gallery__nav-item {
+  height: min-content;
+  display: flex;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover .gallery__nav-btn,
+  &:focus .gallery__nav-btn {
+    background-color: @basic-yellow;
+  }
+}
+
+.gallery__nav-btn {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin: 0;
+  background-color: @basic-white;
+  border: none;
+  border-radius: 50%;
+  box-sizing: border-box;
+
+  &.slider__nav-btn--current {
+    background-color: @basic-yellow;
+  }
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Roll Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+
+  <body class="page-body" id="main">
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="viber-icon">
+        <path d="M14.2 0c-2.5 0-8 .4-11 3C.9 5.3.2 8.5 0 12.4c0 3.9-.2 11.2 7.3 13.2v3s0 1.2.8 1.4c1 .4 1.6-.6 2.6-1.6l1.8-2c5 .4 9-.5 9.4-.6 1-.3 6.8-1 7.8-8.3 1-7.6-.5-12.3-3-14.5h-.1c-.8-.7-4-2.9-11-2.9h-1.4zm.1 2.1h1.2c6 0 8.8 1.8 9.5 2.3 2.2 1.8 3.3 6.1 2.5 12.4-.8 6.1-5.5 6.5-6.4 6.8-.4 0-3.8.9-8 .6 0 0-3.3 3.7-4.3 4.6-.2.2-.4.3-.5.2-.1 0-.2-.2-.2-.5v-5C2 21.8 2.2 15.6 2.3 12.4c0-3.3.7-6 2.6-7.8 2.6-2.2 7.2-2.5 9.4-2.5zm.5 3.3a.4.4 0 00-.3 0 .4.4 0 00-.1.3c0 .3.2.4.4.4a7.8 7.8 0 015.3 2 7 7 0 012.1 5.4c0 .2.2.4.4.4l.3-.1.1-.3a7.7 7.7 0 00-2.4-6 8.4 8.4 0 00-5.8-2.1zm-5.2.8c-.3 0-.6 0-.8.2-.6.3-1.1.7-1.6 1.2l-.6 1.1v.7h.1a19.2 19.2 0 004.6 7.2v.1h.1l.1.1a20.4 20.4 0 007.6 4.4l.6.1c.5 0 1-.2 1.4-.6.5-.4 1-.9 1.2-1.4.3-.6.2-1-.2-1.4l-2.8-2c-.7-.3-1.4 0-1.7.3l-.6.7c-.3.3-.8.3-.8.3-4.1-1-5.2-5-5.2-5s0-.5.3-.8l.7-.5c.4-.3.6-1 .3-1.6a17 17 0 00-2-2.7l-.7-.4zm5.9 1.1c-.6 0-.6.8 0 .8a5.2 5.2 0 013.4 1.4 4.3 4.3 0 011.2 3.3l.1.2.3.1h.3l.1-.3A5 5 0 0019.5 9c-1-1-2.3-1.5-4-1.7zm.6 2c-.5 0-.6.8 0 .8 1.3.1 2 .7 2 2l.1.3h.3a.4.4 0 00.3 0 .4.4 0 000-.3c0-1.7-1-2.6-2.7-2.7z"/>
+      </symbol>
+
+      <symbol id="telegram-icon">
+        <path d="M15 0a15 15 0 100 30 15 15 0 000-30zm7.4 10.3l-2.5 11.6c-.2.8-.7 1-1.3.6l-3.8-2.8-1.8 1.8c-.2.2-.4.4-.8.4l.3-3.9 7-6.2c.3-.3-.1-.5-.5-.2L10.4 17 6.7 16c-.8-.3-.8-.8.2-1.2L21.3 9c.7-.2 1.3.2 1 1.2z"/>
+      </symbol>
+
+      <symbol id="whatsapp-icon">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.9 18l-2.6-1.2c-.3-.2-.6-.2-.8.2l-1.2 1.4c-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3-1.8-1.1-1-1.9-2.2-2-2.6-.3-.4-.1-.6 0-.8l.6-.6.4-.6v-.7l-1.2-2.7c-.3-.8-.6-.7-.8-.7h-.7c-.3 0-.7 0-1 .5-.4.3-1.3 1.2-1.3 3 0 1.9 1.3 3.7 1.5 4 .2.2 2.6 4 6.4 5.5l2.1.8c.9.3 1.7.2 2.4.1.7 0 2.2-.9 2.5-1.7.3-.9.3-1.6.2-1.8l-.7-.4zM15 27.2c-2.3 0-4.4-.6-6.4-1.7l-.4-.3-4.7 1.3 1.2-4.6-.3-.5c-1.2-2-1.9-4.2-1.9-6.5a12.4 12.4 0 0124.9 0c0 6.8-5.6 12.3-12.4 12.3zM25.6 4.4A14.8 14.8 0 0015.1 0 15 15 0 002 22.3L0 30l8-2A15 15 0 0025.6 4.3z"/>
+      </symbol>
+
+      <symbol id="chevron">
+        <path d="M34.3 12.3L22.1 24.4l12.2 12.3-2.5 4.9-17.1-17.2L31.8 7.3l2.5 5z"/>
+      </symbol>
+    </svg>
+
+    <header class="page-header">
+      <div class="page-header__wrapper wrapper navigation">
+        <p class="navigation__logo logo">Ролл-ап</p>
+
+        <div class="navigation__container">
+          <nav class="navigation__nav main-nav">
+            <ul class="main-nav__list">
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="#main">Главная</a>
+              </li>
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="#about">О нас</a>
+              </li>
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="#gallery">Портфолио</a>
+              </li>
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="#reviews">Отзывы</a>
+              </li>
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="#contacts">Контакты</a>
+              </li>
+            </ul>
+  
+            <button class="main-nav__button" type="button"></button>
+          </nav>
+  
+          <div class="navigation__contacts">
+            <a class="navigation__phone" href="tel:+78005569874">8 800-556-98-74</a>
+            <button class="navigation__button button feedback-open" type="button">Заказать звонок</button>
+          
+            <ul class="navigation__social social">
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <svg viewBox="0 0 30 30" width="30" height="30">
+                    <linearGradient id="paint0_linear" x1="0" y1="15" x2="30" y2="15" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#C471F5"/>
+                      <stop offset="1" stop-color="#FA71CD"/>
+                    </linearGradient>
+                    <use xlink:href="#whatsapp-icon" fill="url(#paint0_linear)"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <svg viewBox="0 0 30 30" width="30" height="30">
+                    <linearGradient id="paint1_linear" x1="0" y1="15" x2="30" y2="15" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#C471F5"/>
+                      <stop offset="1" stop-color="#FA71CD"/>
+                    </linearGradient>
+                    <use xlink:href="#telegram-icon" fill="url(#paint1_linear)"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <svg viewBox="0 0 30 30" width="30" height="30">
+                    <linearGradient id="paint2_linear" x1="0" y1="15" x2="30" y2="15" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#C471F5"/>
+                      <stop offset="1" stop-color="#FA71CD"/>
+                    </linearGradient>
+                    <use xlink:href="#viber-icon" fill="url(#paint2_linear)"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="banner">
+        <div class="banner__wrapper wrapper">
+          <picture>
+            <source media="(min-width: 1250px)" srcset="./img/banner-img-desktop.png">
+            <img class="banner__image" src="./img/banner-img-mobile.png" alt="">
+          </picture>
+
+          <h1 class="banner__title">Стенды Roll Up</h1>
+          <p class="banner__text">
+            Ролл ап — это раздвижной передвижной (мобильный) стенд с 
+            рекламным полотном. Особенность конструкции заключается в том, 
+            что полотно может сматываться и быть компактным и мобильным.
+          </p>  
+          <p class="banner__text">В процессе изготовления используются компоненты:</p>
+          
+          <ul class="banner__list">
+            <li class="banner__item">Каркас, состоящий из металла;</li>
+            <li class="banner__item">Полотно, которое сворачивается в металлическую основу;</li>
+            <li class="banner__item">Мачта, которая позволяет зафиксировать конструкцию;</li>
+          </ul>
+
+          <button class="banner__button button feedback-open" type="button">Заказать</button>
+        </div>
+      </section>
+
+      <section class="videos">
+        <div class="videos__wrapper wrapper">
+          <h2 class="videos__title title">Видео об изготовлении Ролл Ап</h2>
+          <div class="videos__slider swipe-slider">
+            <ul class="videos__list slider__list">
+              <li class="videos__item">
+                <div class="videos__img-wrap">
+                  <img class="videos__image" src="./img/videos-img1.png" width="264" height="180" alt="">
+                </div>
+                <p class="videos__text">О мобильных стендах Ролл Ап</p>
+              </li>
+              <li class="videos__item">
+                <div class="videos__img-wrap">
+                  <img class="videos__image" src="./img/videos-img2.png" width="264" height="180" alt="">
+                </div>
+                <p class="videos__text">Инструкция по сборке стенда Roll up 85×200 см.</p>
+              </li>
+              <li class="videos__item">
+                <div class="videos__img-wrap">
+                  <img class="videos__image" src="./img/videos-img3.png" width="264" height="180" alt="">
+                </div>
+                <p class="videos__text">Инструкция по сборке стенда Roll up 100×200 см.</p>
+              </li>
+              <li class="videos__item">
+                <div class="videos__img-wrap">
+                  <img class="videos__image" src="./img/videos-img4.png" width="264" height="180" alt="">
+                </div>
+                <p class="videos__text">Печать полотна на японском обору- довании с разрешением 720 точек</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="page-main__background-container">
+        <section class="about" id="about">
+          <div class="about__wrapper wrapper">
+            <h2 class="about__title title">О нас</h2>
+            <p class="about__caption">Roll Up — заметная реклама</p>
+            
+            <img class="about__image" src="./img/about-img.png" width="402" height="372" alt="">
+  
+            <p class="about__text">
+              Типография Sprinter выпускает мобильные Ролл Ап стенды, стойки и печатает 
+              изображения к ним. Прочная основа, реалистичные изображения, легкость сборки 
+              и эксплуатация в любом месте — все Roll Up от Sprinter. В нашей типографии 
+              можно купить мобильные стенды типа Ролл Ап и оформить доставку по Санкт-Петербургу.
+            </p>
+            <p class="about__text">
+              Мы производим качественные мобильные стенды типа Ролл Ап по вашему 
+              макету или же разработаем для вас уникальный дизайн для рекламы любых 
+              товаров или услуг. Наши менеджеры всегда на связи и готовы ответить на 
+              любые ваши вопросы. В компании «Sprinter» работают опытные дизайнеры, 
+              инженеры и маркетологи, способные справиться с любыми задачами с завидной 
+              легкостью. Заказать конструкцию Roll Up вы можете по телефону — мы всегда 
+              рады прийти на помощь нашим клиентам.
+            </p>
+            
+            <button class="about__button button feedback-open" type="button">Заказать</button>
+          </div>
+        </section>
+
+        <section class="gallery" id="gallery">
+          <div class="gallery__wrapper wrapper">
+            <h2 class="gallery__title title title--left">Галлерея</h2>
+            <div class="gallery__slider slider">
+              <ul class="gallery__list slider__list">
+                <li class="gallery__item slider__item">
+                  <img class="gallery__image" src="./img/gallery-img1.jpg" width="280" height="340" alt="">
+                  <a class="gallery__link" href="">Подробнее</a>
+                </li>
+                <li class="gallery__item slider__item">
+                  <img class="gallery__image" src="./img/gallery-img2.jpg" width="280" height="340" alt="">
+                  <a class="gallery__link" href="">Подробнее</a>
+                </li>
+                <li class="gallery__item slider__item">
+                  <img class="gallery__image" src="./img/gallery-img3.jpg" width="280" height="340" alt="">
+                  <a class="gallery__link" href="">Подробнее</a>
+                </li>
+                <li class="gallery__item slider__item">
+                  <img class="gallery__image" src="./img/gallery-img4.jpg" width="280" height="340" alt="">
+                  <a class="gallery__link" href="">Подробнее</a>
+                </li>
+              </ul>
+
+              <button class="gallery__button gallery__button--prev" disabled>
+                <svg viewBox="0 0 49 49" width="49" height="49" fill="#FFFFFF">
+                  <use xlink:href="#chevron"></use>
+                </svg>
+              </button>
+
+              <ul class="gallery__nav slider__nav">
+                <li class="gallery__nav-item">
+                  <button class="gallery__nav-btn slider__nav-btn slider__nav-btn--current" type="button"></button>
+                </li>
+                <li class="gallery__nav-item">
+                  <button class="gallery__nav-btn slider__nav-btn" type="button"></button>
+                </li>
+                <li class="gallery__nav-item">
+                  <button class="gallery__nav-btn slider__nav-btn" type="button"></button>
+                </li>
+                <li class="gallery__nav-item">
+                  <button class="gallery__nav-btn slider__nav-btn" type="button"></button>
+                </li>
+              </ul>
+              
+              <button class="gallery__button gallery__button--next">
+                <svg viewBox="0 0 49 49" width="49" height="49" fill="#FFFFFF">
+                  <use xlink:href="#chevron"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <section class="procedure">
+        <div class="procedure__wrapper wrapper">
+          <h2 class="procedure__title title title--left">Порядок работы</h2>
+
+          <div class="procedure__slider swipe-slider">
+            <ul class="procedure__list slider__list">
+              <li class="procedure__item">
+                <img class="procedure__image" src="https://via.placeholder.com/125x126" width="126" height="126" alt="">
+                <p class="procedure__name">Ваша заявка</p>
+                <p class="procedure__text">
+                  Оставьте заявку через наш сайт, позвоните или просто напишите письмо на e-mail.
+                  Менеджер типографии свяжется с вами и согласует детали заказа.
+                </p>
+              </li>
+              <li class="procedure__item">
+                <img class="procedure__image" src="https://via.placeholder.com/125x126" width="126" height="126" alt="">
+                <p class="procedure__name">Калькуляция заказа</p>
+                <p class="procedure__text">
+                  Менеджер проводит точный расчет и согласовывает с вами 
+                  итоговую стоимость. Вы будете точно знать сумму заказа.
+                </p>
+              </li>
+              <li class="procedure__item">
+                <img class="procedure__image" src="https://via.placeholder.com/125x126" width="126" height="126" alt="">
+                <p class="procedure__name">Договор и оплата</p>
+                <p class="procedure__text">
+                  Подписание договора, выставление счета. Более подробно со способами 
+                  оплаты вы можете ознакомиться в разделе нашего сайта «Оплата».
+                </p>
+              </li>
+              <li class="procedure__item">
+                <img class="procedure__image" src="https://via.placeholder.com/125x126" width="126" height="126" alt="">
+                <p class="procedure__name">Изготовление и доставка заказа</p>
+                <p class="procedure__text">
+                  Мы разработаем и согласуем с вами макеты. При необходимости 
+                  вы можете заказать доставку готовой продукции.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews" id="reviews">
+        <div class="reviews__wrapper wrapper">
+          <h2 class="reviews__title title">Отзывы</h2>
+
+          <div class="reviews__slider slider">
+            <ul class="reviews__list slider__list">
+              <li class="reviews__item slider__item">
+                <p class="reviews__name">Екатерина Рожкова</p>
+                <p class="reviews__text">
+                  Отлично! Расположение супер. Мне предложили очень красивый дизайн,  
+                  сделали всё быстро и качественно. Всем своим близким посоветовала и буду советовать.
+                </p>
+                <p class="reviews__date">16.09.2019</p>
+              </li>
+              <li class="reviews__item slider__item">
+               <p class="reviews__name">Павел Мартынов</p>
+                <p class="reviews__text">
+                  Понравился подход к мелочам. Эти ребята - мастера своего дела. 
+                  Качество и скорость их конёк. Обязательно буду обращаться в дальнейшем и всем советую.
+                </p>
+                <p class="reviews__date">21.10.2019</p>
+              </li>
+            </ul>
+            
+            <button class="reviews__button reviews__button--prev" disabled>
+              <svg viewBox="0 0 49 49" width="49" height="49" fill="#000000">
+                <use xlink:href="#chevron"></use>
+              </svg>
+            </button>
+
+            <ul class="reviews__nav slider__nav">
+              <li class="reviews__nav-item">
+                <button class="reviews__nav-btn slider__nav-btn slider__nav-btn--current" type="button"></button>
+              </li>
+              <li class="reviews__nav-item">
+                <button class="reviews__nav-btn slider__nav-btn" type="button"></button>
+              </li>
+            </ul>
+            
+            <button class="reviews__button reviews__button--next">
+              <svg viewBox="0 0 49 49" width="49" height="49" fill="#000000">
+                <use xlink:href="#chevron"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer" id="contacts">
+      <div class="page-footer__wrapper wrapper">
+        <h2 class="page-footer__title title">Контакты</h2>
+        <ul class="page-footer__contacts contacts">
+          <li class="contacts__item">
+            <p class="contacts__name">Адрес:</p>
+            <a class="contacts__link" href=""> </a>
+          </li>
+          <li class="contacts__item">
+            <p class="contacts__name">Телефон:</p>
+            <a class="contacts__link" href="tel:+78129206291">+7 (812) 920-62-91</a>
+          </li>
+          <li class="contacts__item">
+            <p class="contacts__name">E-mail:</p>
+            <a class="contacts__link" href="mailto:7156434@mail.ru">7156434@mail.ru</a>
+          </li>
+          <li class="contacts__item">
+            <p class="contacts__name">Мы в соц.сетях:</p>
+            <ul class="contacts__social social">
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <svg viewBox="0 0 30 30" width="30" height="30" fill="#FFFFFF">
+                    <use xlink:href="#whatsapp-icon"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <svg viewBox="0 0 30 30" width="30" height="30" fill="#FFFFFF">
+                    <use xlink:href="#telegram-icon"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <svg viewBox="0 0 30 30" width="30" height="30" fill="#FFFFFF">
+                    <use xlink:href="#viber-icon"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <picture>
+          <source media="(min-width: 1250px)" srcset="./img/map-desktop.png">
+          <img class="page-footer__map" src="./img/map-mobile.png" alt="Карта">
+        </picture>
+
+        <div class="page-footer__navigation navigation">
+          <p class="navigation__logo logo">Ролл-ап</p>
+  
+          <div class="navigation__container">
+            <nav class="navigation__nav main-nav">
+              <ul class="main-nav__list">
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#main">Главная</a>
+                </li>
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#about">О нас</a>
+                </li>
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#gallery">Портфолио</a>
+                </li>
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#reviews">Отзывы</a>
+                </li>
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#contacts">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+    
+            <div class="navigation__contacts">
+              <a class="navigation__phone" href="tel:+78005569874">
+                8 800-556-98-74
+              </a>
+              <button class="navigation__button button feedback-open" type="button">Заказать звонок</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="page-footer__copyright">Все права защищены © 2021</p>
+      </div>
+    </footer>
+
+    <div class="modal modal--close">
+      <div class="modal__overlay"></div>
+      <div class="modal__container feedback">
+        <p class="feedback__title">Заказать звонок</p>
+        <p class="feedback__text">Оставьте заявку, и наш менеджер свяжется с Вами в течение 15 минут.</p>
+  
+        <form class="feedback__form">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input class="feedback__input" type="text" name="name" id="name" placeholder="Имя">
+          <label class="visually-hidden" for="tel">Номер телефона</label>
+          <input class="feedback__input" type="tel" name="tel" id="tel" placeholder="Номер телефона">
+          <button class="feedback__submit button" type="submit">Заказать</button>
+        </form>
+  
+        <button class="modal__close"></button>
+      </div>
+    </div>
+
+    <div class="modal modal--close">
+      <div class="modal__overlay"></div>
+      <div class="modal__container success">
+        <img class="success__image" src="./img/success-img.png" width="171" height="171" alt="">
+        <p class="success__text">Спасибо за обращение! Наш специалист напишет Вам в ближайшее время</p>
+  
+        <button class="modal__close"></button>
+      </div>
+    </div>
+
+    <ul class="examples">
+      <li class="modal modal--close examples__item">
+        <div class="modal__overlay"></div>
+        <div class="modal__container example">
+          <img class="example__image" src="./img/gallery-img1.jpg" width="306" height="376" alt="">
+          <div class="example__wrapper">
+            <p class="example__caption">Применение ролл ап 1</p>
+            <p class="example__text">
+              Универсальность рекламного roll up важное преимущество 
+              передвижной конструкции. Частые сферы применения: выставки, 
+              рекламные акции, презентации товаров и услуг, навигация в больших 
+              холлах и центрах, научных и политических конференциях. <br>
+              Если нужно привлечь внимание аудитории к вашему бренду, то roll up – 
+              это недорогой и эффективный способ заявить о себе.
+            </p>
+            <p class="example__caption">Закажите прямо сейчас</p>
+            <button class="example__button button">Заказать</button>
+          </div>
+  
+          <button class="modal__close"></button>
+        </div>
+      </li>
+      <li class="modal modal--close examples__item">
+        <div class="modal__overlay"></div>
+        <div class="modal__container example">
+          <img class="example__image" src="./img/gallery-img2.jpg" width="306" height="376" alt="">
+          <div class="example__wrapper">
+            <p class="example__caption">Применение ролл ап 2</p>
+            <p class="example__text">
+              Универсальность рекламного roll up важное преимущество 
+              передвижной конструкции. Частые сферы применения: выставки, 
+              рекламные акции, презентации товаров и услуг, навигация в больших 
+              холлах и центрах, научных и политических конференциях. <br>
+              Если нужно привлечь внимание аудитории к вашему бренду, то roll up – 
+              это недорогой и эффективный способ заявить о себе.
+            </p>
+            <p class="example__caption">Закажите прямо сейчас</p>
+            <button class="example__button button">Заказать</button>
+          </div>
+  
+          <button class="modal__close"></button>
+        </div>
+      </li>
+      <li class="modal modal--close examples__item">
+        <div class="modal__overlay"></div>
+        <div class="modal__container example">
+          <img class="example__image" src="./img/gallery-img3.jpg" width="306" height="376" alt="">
+          <div class="example__wrapper">
+            <p class="example__caption">Применение ролл ап 3</p>
+            <p class="example__text">
+              Универсальность рекламного roll up важное преимущество 
+              передвижной конструкции. Частые сферы применения: выставки, 
+              рекламные акции, презентации товаров и услуг, навигация в больших 
+              холлах и центрах, научных и политических конференциях. <br>
+              Если нужно привлечь внимание аудитории к вашему бренду, то roll up – 
+              это недорогой и эффективный способ заявить о себе.
+            </p>
+            <p class="example__caption">Закажите прямо сейчас</p>
+            <button class="example__button button">Заказать</button>
+          </div>
+  
+          <button class="modal__close"></button>
+        </div>
+      </li>
+      <li class="modal modal--close examples__item">
+        <div class="modal__overlay"></div>
+        <div class="modal__container example">
+          <img class="example__image" src="./img/gallery-img4.jpg" width="306" height="376" alt="">
+          <div class="example__wrapper">
+            <p class="example__caption">Применение ролл ап 4</p>
+            <p class="example__text">
+              Универсальность рекламного roll up важное преимущество 
+              передвижной конструкции. Частые сферы применения: выставки, 
+              рекламные акции, презентации товаров и услуг, навигация в больших 
+              холлах и центрах, научных и политических конференциях. <br>
+              Если нужно привлечь внимание аудитории к вашему бренду, то roll up – 
+              это недорогой и эффективный способ заявить о себе.
+            </p>
+            <p class="example__caption">Закажите прямо сейчас</p>
+            <button class="example__button button">Заказать</button>
+          </div>
+  
+          <button class="modal__close"></button>
+        </div>
+      </li>
+      
+    </ul>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/modal.js"></script>
+  </body>
+</html>

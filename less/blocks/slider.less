@@ -1,0 +1,21 @@
+.slider {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  & .slider__list {
+    transition: transform 0.3s;
+  }
+}
+
+.swipe-slider {
+  & .slider__list {
+    transition: none;
+  }
+}
+
+.slider__item {
+  &:last-child {
+    margin-right: 0;
+  }
+}
